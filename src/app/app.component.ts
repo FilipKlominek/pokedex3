@@ -27,6 +27,5 @@ export class AppComponent {
 
   get pokemon(): Pokemon[] {
     return this.services.get(this.isDescending, this.page);
-
   }
 }

@@ -5,7 +5,11 @@
 .nav-button {
   cursor: pointer;
   user-select: none;
+
 }
+.nav-button:hover {
+   background-color: #101214 !important;
+ }
 
 .pokemon {
   width: 300px;

@@ -3,7 +3,7 @@
     <div (click)="flipOrder()" class="bg-dark text-white p-2 nav-button">{{getOrder()}}</div>
     <div (click)="show()" class="dropdown bg-dark text-white p-2 nav-button">{{getFilterText()}}</div>
     <div [class.d-none]="!showTypes" class="type-select d-flex flex-wrap">
-      <div (click)="changeFilter(0)" class="bg-dark text-white p-2 nav-button">None</div>
+      <div (click)="changeFilter(0)" class="bg-dark text-white p-2 nav-button">All</div>
       <div (click)="changeFilter(1)" class="bg-dark text-white p-2 nav-button">Normal</div>
       <div (click)="changeFilter(2)" class="bg-dark text-white p-2 nav-button">Fire</div>
       <div (click)="changeFilter(3)" class="bg-dark text-white p-2 nav-button">Water</div>

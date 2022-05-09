@@ -16,7 +16,16 @@ export class AppComponent {
 
   public isDescending: boolean = false;
 
+  public page: number = 0;
+
+  public next() {
+    if (this.page < 80) this.page++;
+  }
+  public prev() {
+    if (this.page > 0) this.page--;
+  }
+
   get pokemon(): Pokemon[] {
-    return this.services.get(this.isDescending);
+    return this.services.get(this.isDescending, this.page);
   }
 }

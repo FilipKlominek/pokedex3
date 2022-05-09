@@ -1,25 +1,28 @@
-<div class="nav bg-dark">
+<div class="nav bg-dark d-flex justify-content-between">
   <div (click)="flipOrder()" class="bg-dark text-white p-2 nav-button">Change Order</div>
+  <div class="page-select d-flex">
+    <div (click)="prev()" class="bg-dark text-white p-2 nav-button">previous</div>
+    <div (click)="next()" class="bg-dark text-white p-2 nav-button">next</div>
+  </div>
 </div>
 
 
-<div class="container">
+<div class="container d-flex flex-wrap justify-content-center">
 
 
-  <ul class="list-group d-flex flex-wrap">
-    <li class="list-group-item pokemon" *ngFor="let pokemon of pokemon">
-      <h2><span class="id">[{{pokemon.id}}]</span> {{pokemon.name.english}}</h2>
-      <p>Types:<br>
-        <span *ngFor="let type of pokemon.type">{{type}}<br></span>
-      </p>
-      <p class="stats"> Stats:<br>
-        <span class="d-inline-block label">HP:</span> {{pokemon.base.HP}}<br>
-        <span class="d-inline-block label">Attack:</span> {{pokemon.base.Attack}}<br>
-        <span class="d-inline-block label">Defense:</span> {{pokemon.base.Defense}}<br>
-        <span class="d-inline-block label">Special Attack:</span> {{pokemon.base.SpAttack}}<br>
-        <span class="d-inline-block label">Special Defense:</span> {{pokemon.base.SpDefense}}<br>
-        <span class="d-inline-block label">Speed:</span> {{pokemon.base.Speed}}
-      </p>
-    </li>
-  </ul>
+  <div class="list-group-item pokemon" *ngFor="let pokemon of pokemon">
+    <h2><span class="id">[{{pokemon.id}}]</span> {{pokemon.name.english}}</h2>
+    <p>Types:<br>
+      <span *ngFor="let type of pokemon.type">{{type}}<br></span>
+    </p>
+    <p class="stats"> Stats:<br>
+      <span class="d-inline-block label">HP:</span> {{pokemon.base.HP}}<br>
+      <span class="d-inline-block label">Attack:</span> {{pokemon.base.Attack}}<br>
+      <span class="d-inline-block label">Defense:</span> {{pokemon.base.Defense}}<br>
+      <span class="d-inline-block label">Special Attack:</span> {{pokemon.base.SpAttack}}<br>
+      <span class="d-inline-block label">Special Defense:</span> {{pokemon.base.SpDefense}}<br>
+      <span class="d-inline-block label">Speed:</span> {{pokemon.base.Speed}}
+    </p>
+  </div>
+
 </div>

@@ -16587,22 +16587,21 @@ export class Services {
       }
     }
   ];
-/*
-  get(): Pokemon[] {
-    return this.pokemon
-  }
-*/
-  get(isDescending: boolean): Pokemon[] {
+
+  get(isDescending: boolean, page: number): Pokemon[] {
+
+    let start: number = page * 10;
+    let end: number = start + 10;
+
+
     if (!isDescending) {
       return this.pokemon
-        .sort(
-          (o1, o2) => o1.name.english.localeCompare(o2.name.english)
-        );
+        .sort((o1, o2) => o1.name.english.localeCompare(o2.name.english))
+        .slice(start, end);
     } else {
       return this.pokemon
-        .sort(
-          (o1, o2) => -o1.name.english.localeCompare(o2.name.english)
-        );
+        .sort((o1, o2) => -o1.name.english.localeCompare(o2.name.english))
+        .slice(start, end);
     }
   }
 }

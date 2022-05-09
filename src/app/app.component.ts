@@ -24,7 +24,7 @@ export class AppComponent {
   public page: number = 0;
 
   public next() {
-    if (this.pokemon.length > 0) this.page++;
+    if (this.pokemon.length >= 10) this.page++;
   }
 
   public prev() {

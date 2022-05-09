@@ -1,8 +1,33 @@
 <div class="nav bg-dark d-flex justify-content-between">
-  <div (click)="flipOrder()" class="bg-dark text-white p-2 nav-button">Change Order</div>
+  <div class="d-flex">
+    <div (click)="flipOrder()" class="bg-dark text-white p-2 nav-button">{{getOrder()}}</div>
+    <div (click)="show()" class="dropdown bg-dark text-white p-2 nav-button">{{getFilterText()}}</div>
+    <div [class.d-none]="!showTypes" class="type-select d-flex flex-wrap">
+      <div (click)="changeFilter(0)" class="bg-dark text-white p-2 nav-button">None</div>
+      <div (click)="changeFilter(1)" class="bg-dark text-white p-2 nav-button">Normal</div>
+      <div (click)="changeFilter(2)" class="bg-dark text-white p-2 nav-button">Fire</div>
+      <div (click)="changeFilter(3)" class="bg-dark text-white p-2 nav-button">Water</div>
+      <div (click)="changeFilter(4)" class="bg-dark text-white p-2 nav-button">Grass</div>
+      <div (click)="changeFilter(5)" class="bg-dark text-white p-2 nav-button">Flying</div>
+      <div (click)="changeFilter(6)" class="bg-dark text-white p-2 nav-button">Fighting</div>
+      <div (click)="changeFilter(7)" class="bg-dark text-white p-2 nav-button">Poison</div>
+      <div (click)="changeFilter(8)" class="bg-dark text-white p-2 nav-button">Electric</div>
+      <div (click)="changeFilter(9)" class="bg-dark text-white p-2 nav-button">Ground</div>
+      <div (click)="changeFilter(10)" class="bg-dark text-white p-2 nav-button">Rock</div>
+      <div (click)="changeFilter(11)" class="bg-dark text-white p-2 nav-button">Psychic</div>
+      <div (click)="changeFilter(12)" class="bg-dark text-white p-2 nav-button">Ice</div>
+      <div (click)="changeFilter(13)" class="bg-dark text-white p-2 nav-button">Bug</div>
+      <div (click)="changeFilter(14)" class="bg-dark text-white p-2 nav-button">Ghost</div>
+      <div (click)="changeFilter(15)" class="bg-dark text-white p-2 nav-button">Steel</div>
+      <div (click)="changeFilter(16)" class="bg-dark text-white p-2 nav-button">Dragon</div>
+      <div (click)="changeFilter(17)" class="bg-dark text-white p-2 nav-button">Dark</div>
+      <div (click)="changeFilter(18)" class="bg-dark text-white p-2 nav-button">Fairy</div>
+    </div>
+  </div>
   <div class="page-select d-flex">
     <div (click)="prev()" class="bg-dark text-white p-2 nav-button">previous</div>
     <div (click)="next()" class="bg-dark text-white p-2 nav-button">next</div>
+    <div class="bg-dark text-white p-2">{{page}}</div>
   </div>
 </div>
 
@@ -11,11 +36,11 @@
 
 
   <div class="list-group-item pokemon" *ngFor="let pokemon of pokemon">
-    <h2><span class="id">[{{pokemon.id}}]</span> {{pokemon.name.english}}</h2>
-    <p>Types:<br>
+    <h3><span class="id">[{{pokemon.id}}]</span> {{pokemon.name.english}}</h3>
+    <p class="m-0 types"><b>Types:</b><br>
       <span *ngFor="let type of pokemon.type">{{type}}<br></span>
     </p>
-    <p class="stats"> Stats:<br>
+    <p class="stats m-0"><b>Stats:</b><br>
       <span class="d-inline-block label">HP:</span> {{pokemon.base.HP}}<br>
       <span class="d-inline-block label">Attack:</span> {{pokemon.base.Attack}}<br>
       <span class="d-inline-block label">Defense:</span> {{pokemon.base.Defense}}<br>

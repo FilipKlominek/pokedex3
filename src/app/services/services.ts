@@ -16588,20 +16588,51 @@ export class Services {
     }
   ];
 
-  get(isDescending: boolean, page: number): Pokemon[] {
+  get(isDescending: boolean, page: number, filter: number): Pokemon[] {
+
+    let array = this.pokemon;
 
     let start: number = page * 10;
     let end: number = start + 10;
 
+    let type = "";
+
+    switch (filter) {
+      case 1: type = "Normal"; break;
+      case 2: type = "Fire"; break;
+      case 3: type = "Water"; break;
+      case 4: type = "Grass"; break;
+      case 5: type = "Flying"; break;
+      case 6: type = "Fighting"; break;
+      case 7: type = "Poison"; break;
+      case 8: type = "Electric"; break;
+      case 9: type = "Ground"; break;
+      case 10: type = "Rock"; break;
+      case 11: type = "Psychic"; break;
+      case 12: type = "Ice"; break;
+      case 13: type = "Bug"; break;
+      case 14: type = "Ghost"; break;
+      case 15: type = "Steel"; break;
+      case 16: type = "Dragon"; break;
+      case 17: type = "Dark"; break;
+      case 18: type = "Fairy"; break;
+    }
+
+    if (filter != 0) {
+      array = array.filter(pokemon => pokemon.type[0] == type || pokemon.type[1] == type)
+    }
 
     if (!isDescending) {
-      return this.pokemon
+      return array
         .sort((o1, o2) => o1.name.english.localeCompare(o2.name.english))
         .slice(start, end);
     } else {
-      return this.pokemon
+      return array
         .sort((o1, o2) => -o1.name.english.localeCompare(o2.name.english))
         .slice(start, end);
     }
   }
+
 }
+
+
